@@ -3,8 +3,10 @@ import { setCurrentUrl } from '../slice/catMemeSlice';
 import { useEffect } from 'react';
 import { createElement } from 'react';
 import { useState } from 'react';
+import { setNewImage } from '../slice/catMemeSlice';
+import { FavoriteButton } from './FavoriteButton';
 
-export function CatMemeImage(){
+export function CatMemeImage(props){
     const rootUrl = useSelector((state) =>state.catMeme.rootUrl)
     const tagList = useSelector((state) =>state.catMeme.tag)
     const text = useSelector((state) =>state.catMeme.text)
@@ -13,7 +15,11 @@ export function CatMemeImage(){
     const newImage = useSelector((state) =>state.catMeme.newImage)
     const dispatch = useDispatch();
 
+
+
+
     useEffect(() => {
+        console.log("entered use effect Cat meme image");
         if (newImage)
         {
             if(tagList.length === 0 && text === "")
@@ -24,6 +30,7 @@ export function CatMemeImage(){
             else if (tagList.length > 0)
             {
                 dispatch(setCurrentUrl(rootUrl + "/" + tagList.join(",")));
+                CheckImageUrl(setCurrentUrl(rootUrl + "/" + tagList.join(",")));
                 setSrc( rootUrl + "/" + tagList.join(",")  + "?x=" + Math.floor(Math.random()*1000));
             }
 
@@ -43,6 +50,22 @@ export function CatMemeImage(){
        
     },[newImage])
     
+    
+    if (props.id != null)
+    {
+        console.log(rootUrl + "/" + props.id);
+        setSrc(rootUrl + "/" + props.id);
+    }
 
-    return <img  src={src} />;
+    return(<div>
+        <img  src={src} />
+        </div>);
+}
+
+
+function CheckImageUrl(url)
+{
+    fetch(url).then(response => {
+        console.log("check response " + response.status);
+    });
 }
