@@ -16,7 +16,6 @@ export function CustomPage()
     <GenerateButton />
     <CatMemeImage />
     <FavoriteButton />
-    <></>
     </>
 );
 }

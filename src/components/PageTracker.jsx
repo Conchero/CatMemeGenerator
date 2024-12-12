@@ -9,7 +9,6 @@ export function PageTracker()
 {
     const location = useLocation();
     const dispatch = useDispatch();
-
     useEffect(() => {
         dispatch(resetCustom());
      },[location]);

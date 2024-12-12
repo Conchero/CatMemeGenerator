@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { BrowserRouter, Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { removeFavorite } from "../slice/catMemeSlice";
 
 export function FavoriteImageThumbnail(props){

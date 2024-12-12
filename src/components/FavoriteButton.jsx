@@ -16,7 +16,6 @@ export function FavoriteButton() {
                 try {
                     const response = await axios.get(url + "?json=true");
                     setPictureData(response.data);
-                    console.log(response.data._id);
                 } catch (error) {
                     
                 }

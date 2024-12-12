@@ -38,7 +38,7 @@ export const catMemeSlice = createSlice({
             state.text = "";
         },
         addFavorite: (state, actions) => {
-            if (!state.favorites.includes(actions.payload)) {
+            if (actions.payload.length > 0 && !state.favorites.includes(actions.payload)) {
                 state.favorites.push(actions.payload);
             }
         },

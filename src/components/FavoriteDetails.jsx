@@ -1,7 +1,5 @@
 import { useParams } from "react-router-dom"
-import { FavoriteImageThumbnail } from "./FavoriteImageThumbnail";
 import { useSelector } from "react-redux";
-import { CatMemeImage } from "./CatMemeImage";
 import { FavoriteImageDetails } from "./FavoriteImageDetails";
 
 

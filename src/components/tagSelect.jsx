@@ -16,7 +16,6 @@ export function TagSelector() {
             try {
                 const response = await axios.get("https://cataas.com/api/tags");
                 setData(response.data);
-                console.log(response.data[1]);
             }
             catch (err) {
                 console.log(err)
@@ -41,7 +40,9 @@ export function TagSelector() {
     return(
         <>
          <select onChange={e => AddTag(e)}>
-        {data.map((el,i) => <option key={i} value={el}>{el}</option>)}
+        {data.map((el,i) => {
+            if (el != "")
+            return <option key={i} value={el}>{el}</option>})}
         </select>
         <ul>
         {tagList.map((el, i) => {
