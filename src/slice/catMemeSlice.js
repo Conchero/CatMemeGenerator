@@ -41,11 +41,20 @@ export const catMemeSlice = createSlice({
             if (!state.favorites.includes(actions.payload)) {
                 state.favorites.push(actions.payload);
             }
-        }
+        },
+        removeFavorite: (state, actions) => {
+            let foundIndex = 0;
+            state.favorites.forEach((e, i) => {
+                if (e._id === actions.payload) {
+                    foundIndex = i;
+                }
+            });
+            state.favorites.splice(foundIndex, 1);
+        },
     }
 })
 
 
-export const { setTag, setText, setNewImage, setCurrentUrl, removeTag, resetCustom,addFavorite } = catMemeSlice.actions;
+export const { setTag, setText, setNewImage, setCurrentUrl, removeTag, resetCustom, addFavorite, removeFavorite } = catMemeSlice.actions;
 
 export default catMemeSlice.reducer;

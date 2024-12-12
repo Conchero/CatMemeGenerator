@@ -44,7 +44,7 @@ export function TagSelector() {
         {data.map((el,i) => <option key={i} value={el}>{el}</option>)}
         </select>
         <ul>
-        {tagList.map((el, i) => {console.log({tagList});
+        {tagList.map((el, i) => {
             return <li key={i}><Tag name={el}/></li>})}
         </ul>
         </>

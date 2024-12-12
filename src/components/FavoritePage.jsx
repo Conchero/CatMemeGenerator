@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux"
 import { CatMemeImage } from "./CatMemeImage";
 import { FavoriteImageThumbnail } from "./FavoriteImageThumbnail";
-import { BrowserRouter, Link, Route } from "react-router-dom";
 
 
 export function FavoritePage()
@@ -11,13 +10,7 @@ export function FavoritePage()
     const favoriteUrl = "/favoriteDetails/";
 
     return <div>
-            {favorites.map((el,i) => {
-                return (
-                <>
-                <FavoriteImageThumbnail key={i} id={el._id}/>
-                <Link to ={favoriteUrl+el._id}>See Details</Link>
-                </>
-                )
-            })}
+            {favorites.map((el,i) => 
+                <FavoriteImageThumbnail key={i} id={el._id} url={favoriteUrl + el._id}/>)}
         </div>
 }
