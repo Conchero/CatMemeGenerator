@@ -11,7 +11,8 @@ export function FavoriteButton() {
     const [pictureData, setPictureData] = useState([]);
 
     useEffect(() => {
-        if (newImage) {
+        if (newImage)
+        {
             const fetchPictureData = async () => {
                 try {
                     const response = await axios.get(url + "?json=true");
@@ -23,6 +24,7 @@ export function FavoriteButton() {
             };
             fetchPictureData();
         }
+
     }, [newImage]);
 
 
